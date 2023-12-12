@@ -1,0 +1,36 @@
+Received the following input and output examples:
+[(['h', 'e', 'l', 'l', 'o'], [1, 1, 2, 2, 1])]
+Running synthesizer with
+Vocab: {'o', 'e', 'h', 'l'}
+Max sequence length: 5
+Max weight: 25
+(indices - indices)
+[[0, 0, 0, 0, 0]]
+(indices - 0)
+[[0, 1, 2, 3, 4]]
+(indices - 1)
+[[-1, 0, 1, 2, 3]]
+(0 - indices)
+[[0, -1, -2, -3, -4]]
+(1 - indices)
+[[1, 0, -1, -2, -3]]
+(select(tokens, tokens, ==))
+[[[True, False, False, False, False], [False, True, False, False, False], [False, False, True, True, False], [False, False, True, True, False], [False, False, False, False, True]]]
+(select(tokens, tokens, true))
+[[[True, True, True, True, True], [True, True, True, True, True], [True, True, True, True, True], [True, True, True, True, True], [True, True, True, True, True]]]
+(select(tokens, indices, ==))
+[[[False, False, False, False, False], [False, False, False, False, False], [False, False, False, False, False], [False, False, False, False, False], [False, False, False, False, False]]]
+(select(tokens, indices, true))
+[[[True, True, True, True, True], [True, True, True, True, True], [True, True, True, True, True], [True, True, True, True, True], [True, True, True, True, True]]]
+(select(indices, tokens, ==))
+[[[False, False, False, False, False], [False, False, False, False, False], [False, False, False, False, False], [False, False, False, False, False], [False, False, False, False, False]]]
+(select(indices, tokens, true))
+[[[True, True, True, True, True], [True, True, True, True, True], [True, True, True, True, True], [True, True, True, True, True], [True, True, True, True, True]]]
+(select(indices, indices, ==))
+[[[True, False, False, False, False], [False, True, False, False, False], [False, False, True, False, False], [False, False, False, True, False], [False, False, False, False, True]]]
+(select(indices, indices, true))
+[[[True, True, True, True, True], [True, True, True, True, True], [True, True, True, True, True], [True, True, True, True, True], [True, True, True, True, True]]]
+(select_width((select(tokens, tokens, ==))))
+[[1, 1, 2, 2, 1]]
+The following program has been compiled to a transformer with 1 layer(s):
+(select_width((select(tokens, tokens, ==))))

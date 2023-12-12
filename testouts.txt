@@ -1,0 +1,55 @@
+Received the following input and output examples:
+[(['h', 'i'], ['h', 'h'])]
+Running synthesizer with
+Vocab: {'h', 'i'}
+Max sequence length: 2
+Max weight: 15
+- Searching level 2 with 4 primitives.
+- Searching level 3 with 4 primitives.
+(select(tokens, tokens, ==))
+[[[True, False], [False, True]]]
+(select(tokens, tokens, true))
+[[[True, True], [True, True]]]
+- Searching level 4 with 6 primitives.
+(select_width((select(tokens, tokens, ==))))
+[[1, 1]]
+(select_width((select(tokens, tokens, true))))
+[[2, 2]]
+- Searching level 5 with 8 primitives.
+- Searching level 6 with 8 primitives.
+- Searching level 7 with 8 primitives.
+- Searching level 8 with 8 primitives.
+- Searching level 9 with 8 primitives.
+(aggregate((select(tokens, tokens, ==)), (select_width((select(tokens, tokens, ==))))))
+[[1.0, 1.0]]
+(aggregate((select(tokens, tokens, ==)), (select_width((select(tokens, tokens, true))))))
+[[2.0, 2.0]]
+(aggregate((select(tokens, tokens, true)), (select_width((select(tokens, tokens, ==))))))
+[[1.0, 1.0]]
+(aggregate((select(tokens, tokens, true)), (select_width((select(tokens, tokens, true))))))
+[[2.0, 2.0]]
+- Searching level 10 with 12 primitives.
+- Searching level 11 with 12 primitives.
+- Searching level 12 with 12 primitives.
+- Searching level 13 with 12 primitives.
+- Searching level 14 with 12 primitives.
+(aggregate((select(tokens, tokens, ==)), (aggregate((select(tokens, tokens, ==)), (select_width((select(tokens, tokens, ==))))))))
+[[1.0, 1.0]]
+(aggregate((select(tokens, tokens, ==)), (aggregate((select(tokens, tokens, ==)), (select_width((select(tokens, tokens, true))))))))
+[[2.0, 2.0]]
+(aggregate((select(tokens, tokens, ==)), (aggregate((select(tokens, tokens, true)), (select_width((select(tokens, tokens, ==))))))))
+[[1.0, 1.0]]
+(aggregate((select(tokens, tokens, ==)), (aggregate((select(tokens, tokens, true)), (select_width((select(tokens, tokens, true))))))))
+[[2.0, 2.0]]
+> c:\users\18084\desktop\cs252r\final_project\tracr-synthesis\rasp_synthesizer.py(94)check_obs_equivalence()
+-> return a_output == b_output
+(Pdb) --KeyboardInterrupt--
+(Pdb) --KeyboardInterrupt--
+(Pdb) --KeyboardInterrupt--
+(Pdb) *** SyntaxError: invalid syntax
+(Pdb) --KeyboardInterrupt--
+(Pdb) *** SyntaxError: invalid syntax
+(Pdb) --KeyboardInterrupt--
+(Pdb) --KeyboardInterrupt--
+(Pdb) *** SyntaxError: invalid syntax
+(Pdb) 
